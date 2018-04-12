@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <meta charset='utf-8'> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.3.1.js"></script>
+	<script src="ibe120.js"></script>
+</head>
+
+
+<script>
+// https://stackoverflow.com/questions/19151930/how-to-print-json-array-in-jquery-with-ajax-response
+ $.ajax({
+                url : 'http://localhost:2009/api/person',
+                type : 'GET',
+                dataType : 'json',
+                success : function (data)
+                {
+                    console.log(data);
+					var tabellHerEl = document.querySelector("#tabellHer");
+					
+					tabellHerEl.innerHTML = "";
+					tabellHerEl.appendChild(visTabell(data));
+                }
+            });
+
+</script>
+
+<div id="tabellHer"></div>
+
+</html>
